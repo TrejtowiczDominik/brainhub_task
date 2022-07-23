@@ -41,9 +41,18 @@ To build backend application the following technologies have been used:
 The entire application is divided into two folders: frontend and backend. To start:
 
 - download or clone repository
+
+### Without Docker
+
 - run `npm install` in frontend catalog
 - run `npm install` in backend catalog
 - to start frontend application run `npm start` in /frontend catalog
 - to start backend application run `npm start` in /backend catalog
 - to test frontend application run `npm test` in /frontend catalog
 - to start backend application run `npm test` in /backend catalog
+
+### With Docker
+
+- run `docker-compose build frontend-dev --no-cache` to build docker container
+- run `docker-compose up frontend-dev --force-recreate` to run frontend and backend apps also with tests tests
+- run `docker-compose down` to remove docker container

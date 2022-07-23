@@ -109,6 +109,29 @@ describe("Event Controller", function () {
     });
   });
 
+  it("event with incorrect email - http status 422", function (done) {
+    const req = {
+      body: {
+        event: {
+          firstName: "test",
+          lastName: "test",
+          eventDate: "17/11/2023",
+          email: "testMail",
+        },
+      },
+    };
+
+    EventController.postAddEvent(req, {}, () => {}).then((result) => {
+      expect(result).to.be.an("error");
+      expect(result).to.have.property("statusCode", 422);
+      expect(result).to.have.property(
+        "message",
+        "Validation failed, email is incorrect"
+      );
+      done();
+    });
+  });
+
   it("event without date - http status 422", function (done) {
     const req = {
       body: {

@@ -1,0 +1,11 @@
+#Ignore all files
+*
+
+#White list only the required directories/files
+!controllers/
+!models/
+!routes/
+!test
+!package.json
+!package-lock.json
+!server.js

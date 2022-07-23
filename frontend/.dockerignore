@@ -1,0 +1,8 @@
+#Ignore all files
+*
+
+#White list only the required directories/files
+!public/
+!src/
+!package.json
+!package-lock.json

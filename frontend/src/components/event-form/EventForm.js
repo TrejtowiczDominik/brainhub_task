@@ -15,6 +15,7 @@ const getInputClasses = (inputHasError) => {
 };
 
 const EventForm = () => {
+  const emailRegexp = /\S+@\S+\.\S+/;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({
     text: "",
@@ -54,8 +55,7 @@ const EventForm = () => {
     reset: enteredEmailReset,
   } = useInput(
     INPUT_TYPE_TEXT,
-    (value) =>
-      value !== null && value.trim() !== "" && /\S+@\S+\.\S+/.test(value)
+    (value) => value !== null && value.trim() !== "" && emailRegexp.test(value)
   );
 
   const {
@@ -100,7 +100,7 @@ const EventForm = () => {
       firstName: enteredFirstName,
       lastName: enteredLastName,
       email: enteredEmail,
-      // eventDate: enteredDate.getTime(),
+      eventDate: enteredDate.getTime(),
     };
 
     axios({

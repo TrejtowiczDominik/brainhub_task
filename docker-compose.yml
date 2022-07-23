@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  frontend-dev:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    command: npm start
+    volumes:
+      - "./frontend:/usr/src/app/frontend/"
+    environment:
+      - WATCHPACK_POLLING=true
+    restart: always
+    links:
+      - backend-dev
+    networks:
+      - mearn-app
+
+  backend-dev:
+    build: ./backend
+    ports:
+      - "3002:3002"
+    command: npm start
+    volumes:
+      - "./backend:/usr/src/app/backend/"
+    environment:
+      - WATCHPACK_POLLING=true
+    restart: always
+    networks:
+      - mearn-app
+
+  frontend-test:
+    build: ./frontend
+    command: npm test
+    volumes:
+      - "./frontend/src:/usr/src/app/frontend/src"
+    environment:
+      - CI=true
+      - WATCHPACK_POLLING=true
+
+  backend-test:
+    build: ./backend
+    command: npm test
+    volumes:
+      - "./backend/test:/usr/src/app/backend/test"
+    environment:
+      - CI=true
+      - WATCHPACK_POLLING=true
+
+networks:
+  mearn-app:
+    driver: bridge

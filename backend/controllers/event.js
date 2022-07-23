@@ -34,6 +34,12 @@ exports.postAddEvent = async (req, res, next) => {
       error.statusCode = 422;
       throw error;
     }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      const error = new Error("Validation failed, email is incorrect");
+      error.statusCode = 422;
+      throw error;
+    }
     if (!date) {
       const error = new Error("Validation failed, event date is missing");
       error.statusCode = 422;
