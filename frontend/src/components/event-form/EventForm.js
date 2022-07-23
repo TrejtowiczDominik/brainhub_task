@@ -119,6 +119,7 @@ const EventForm = () => {
           error: false,
         });
         resetInputs();
+        setIsSubmitting(false);
       })
       .catch((err) => {
         console.log(err);
@@ -126,8 +127,8 @@ const EventForm = () => {
           text: err.response.data.message,
           error: true,
         });
+        setIsSubmitting(false);
       });
-    setIsSubmitting(false);
     setTimeout(() => {
       setMessage({
         text: "",

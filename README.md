@@ -53,6 +53,11 @@ The entire application is divided into two folders: frontend and backend. To sta
 
 ### With Docker
 
-- run `docker-compose build frontend-dev --no-cache` to build docker container
-- run `docker-compose up frontend-dev --force-recreate` to run frontend and backend apps also with tests tests
-- run `docker-compose down` to remove docker container
+- run `docker-compose build frontend-dev` to build docker image for frontend application.
+- run `docker-compose build backend-dev` to build docker image for backend application separately
+- run `docker-compose build frontend-test` to build docker image for frontend tests
+- run `docker-compose build backend-test` to build docker image for backend tests
+- run `docker-compose up fronend-dev` to run frontend application. This action will also create image and run backend application
+- run `docker-compose up backend-dev` to run backend application separately
+- run `docker-compose up fronend-test` to run frontend tests
+- run `docker-compose up backend-test` to run backend tests
