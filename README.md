@@ -36,9 +36,11 @@ To build backend application the following technologies have been used:
 - chai (for testing)
 - nodemon (for development)
 
+To build e2e tests Cypress have been used.
+
 ## Setup
 
-The entire application is divided into two folders: frontend and backend. To start:
+The entire application is divided into thre folders: frontend, backend and e2e. To start:
 
 - download or clone repository
 
@@ -46,10 +48,12 @@ The entire application is divided into two folders: frontend and backend. To sta
 
 - run `npm install` in frontend catalog
 - run `npm install` in backend catalog
+- run `npm install` in e2e catalog
 - to start frontend application run `npm start` in /frontend catalog
 - to start backend application run `npm start` in /backend catalog
-- to test frontend application run `npm test` in /frontend catalog
-- to start backend application run `npm test` in /backend catalog
+- to run unit tests frontend application run `npm test` in /frontend catalog
+- to run unit tests backend application run `npm test` in /backend catalog
+- to run end to end tests run `npm run cypress:run` in /e2e catalog (frontend and backend application should be started)
 
 ### With Docker
 
