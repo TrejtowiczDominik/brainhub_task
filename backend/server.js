@@ -27,7 +27,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://testUser:BHvLVY3R3RYwc8hB@cluster0.jop4sgk.mongodb.net/?retryWrites=true&w=majority"
+    ""
   )
   .then((result) => {
     const server = app.listen(3002);
